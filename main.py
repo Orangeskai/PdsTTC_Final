@@ -24,6 +24,11 @@ b14 = StringVar(value='')
 b15 = StringVar(value='')
 b16 = StringVar(value='')
 
+#Untuk menentukan siapa yang main dulu (player 1 atau player 2)
+KLIK = True
+#Untuk menyimpan progress permainan
+COUNT = 0
+
 def start():
     """
     0 1 2 3
@@ -31,7 +36,7 @@ def start():
     2
     3
     """
-    #cek jenis sistem
+    #Cek jenis sistem
     if os.name == 'posix':
         LEBAR = 7
         #FONT = ("Dyuthi", 20, 'bold')
@@ -71,8 +76,117 @@ def start():
     s16 = Button(root, height = TINGGI, width = LEBAR, font = FONT, relief = RELIEF, bg = BGTOMBOL, textvariable = b16, command = lambda: tekan(16), disabledforeground = BGTOMBOL_DITEKAN)
     s16.grid(row = 3, column = 3, padx = PADDINGX, pady = PADDINGY)
 
-    def tekan():
-        pass
+    #Untuk menyimpan progress permainan
+    def tekan(tombol_yang_ditekan):
+        global KLIK, COUNT
+        if KLIK == True:
+            if tombol_yang_ditekan == 1:
+                b1.set("1")
+                s1['state'] = 'disabled'
+            elif tombol_yang_ditekan == 2:
+                b2.set("1")
+                s2['state'] = 'disabled'
+            elif tombol_yang_ditekan == 3:
+                b3.set("1")
+                s3['state'] = 'disabled'
+            elif tombol_yang_ditekan == 4:
+                b4.set("1")
+                s4['state'] = 'disabled'
+            elif tombol_yang_ditekan == 5:
+                b5.set("1")
+                s5['state'] = 'disabled'
+            elif tombol_yang_ditekan == 6:
+                b6.set("1")
+                s6['state'] = 'disabled'
+            elif tombol_yang_ditekan == 7:
+                b7.set("1")
+                s7['state'] = 'disabled'
+            elif tombol_yang_ditekan == 8:
+                b8.set("1")
+                s8['state'] = 'disabled'
+            elif tombol_yang_ditekan == 9:
+                b9.set("1")
+                s9['state'] = 'disabled'
+            elif tombol_yang_ditekan == 10:
+                b10.set("1")
+                s10['state'] = 'disabled'
+            elif tombol_yang_ditekan == 11:
+                b11.set("1")
+                s11['state'] = 'disabled'
+            elif tombol_yang_ditekan == 12:
+                b12.set("1")
+                s12['state'] = 'disabled'
+            elif tombol_yang_ditekan == 13:
+                b13.set("1")
+                s13['state'] = 'disabled'
+            elif tombol_yang_ditekan == 14:
+                b14.set("1")
+                s14['state'] = 'disabled'
+            elif tombol_yang_ditekan == 15:
+                b15.set("1")
+                s15['state'] = 'disabled'
+            elif tombol_yang_ditekan == 16:
+                b16.set("1")
+                s16['state'] = 'disabled'
+            COUNT += 1
+            KLIK = False
+            cekmenang()
+        
+        else:
+            if tombol_yang_ditekan == 1:
+                b1.set("0")
+                s1['state'] = 'disabled'
+            elif tombol_yang_ditekan == 2:
+                b2.set("0")
+                s2['state'] = 'disabled'
+            elif tombol_yang_ditekan == 3:
+                b3.set("0")
+                s3['state'] = 'disabled'
+            elif tombol_yang_ditekan == 4:
+                b4.set("0")
+                s4['state'] = 'disabled'
+            elif tombol_yang_ditekan == 5:
+                b5.set("0")
+                s5['state'] = 'disabled'
+            elif tombol_yang_ditekan == 6:
+                b6.set("0")
+                s6['state'] = 'disabled'
+            elif tombol_yang_ditekan == 7:
+                b7.set("0")
+                s7['state'] = 'disabled'
+            elif tombol_yang_ditekan == 8:
+                b8.set("0")
+                s8['state'] = 'disabled'
+            elif tombol_yang_ditekan == 9:
+                b9.set("0")
+                s9['state'] = 'disabled'
+            elif tombol_yang_ditekan == 10:
+                b10.set("0")
+                s10['state'] = 'disabled'
+            elif tombol_yang_ditekan == 11:
+                b11.set("0")
+                s11['state'] = 'disabled'
+            elif tombol_yang_ditekan == 12:
+                b12.set("0")
+                s12['state'] = 'disabled'
+            elif tombol_yang_ditekan == 13:
+                b13.set("0")
+                s13['state'] = 'disabled'
+            elif tombol_yang_ditekan == 14:
+                b14.set("0")
+                s14['state'] = 'disabled'
+            elif tombol_yang_ditekan == 15:
+                b15.set("0")
+                s15['state'] = 'disabled'
+            elif tombol_yang_ditekan == 16:
+                b16.set("0")
+                s16['state'] = 'disabled'
+            COUNT += 1
+            KLIK = True
+            cekmenang()
+
+def cekmenang():
+    pass
 
 start()
 root.mainloop()
