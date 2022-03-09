@@ -215,7 +215,7 @@ def cekmenang():
         b1.get() == '1' and b6.get() == '1' and b11.get() == '1' and b16.get() == '1' or
         b4.get() == '1' and b7.get() == '1' and b10.get() == '1' and b13.get() == '1'
         ):
-        coret()
+        cek_coret()
         pesan_menang(1)
         COUNT = 0
         KLIK = True
@@ -237,7 +237,7 @@ def cekmenang():
         b1.get() == '0' and b6.get() == '0' and b11.get() == '0' and b16.get() == '0' or
         b4.get() == '0' and b7.get() == '0' and b10.get() == '0' and b13.get() == '0'
     ):
-        coret()
+        cek_coret()
         pesan_menang(0)
         COUNT = 0
         KLIK = True
@@ -264,8 +264,118 @@ def quote():
     msgbox.showinfo("QUOTE HARI INI", quote_text + "\n\n" + quote_author)
     f.close()
 
-def coret():
-    pass
+def coret(h,v,d):
+    #cek value dan mensetting garis coretan
+    if h == 1:
+        b1.set("-") 
+        b2.set("-")
+        b3.set("-")
+        b4.set("-")
+    elif h == 2:
+        b5.set("-") 
+        b6.set("-")
+        b7.set("-")
+        b8.set("-")
+    elif h == 3:
+        b9.set("-") 
+        b10.set("-")
+        b11.set("-")
+        b12.set("-")
+    elif h == 4:
+        b13.set("-") 
+        b14.set("-")
+        b15.set("-")
+        b16.set("-")
+    elif v == 1:
+        b1.set("|") 
+        b5.set("|") 
+        b9.set("|") 
+        b13.set("|")
+    elif v == 2:
+        b2.set("|") 
+        b6.set("|") 
+        b10.set("|") 
+        b14.set("|")
+    elif v == 3:
+        b3.set("|") 
+        b7.set("|") 
+        b11.set("|") 
+        b15.set("|")
+    elif v == 4:
+        b4.set("|") 
+        b8.set("|") 
+        b12.set("|") 
+        b16.set("|")
+    elif d == 1:
+        b1.set("\\") 
+        b6.set("\\") 
+        b11.set("\\") 
+        b16.set("\\")
+    elif d == 2:
+        b4.set("/") 
+        b7.set("/") 
+        b10.set("/") 
+        b13.set("/")
+
+def cek_coret():
+    """
+    |-----------|
+    |1 |2 |3 |4 |
+    |5 |6 |7 |8 |
+    |9 |10|11|12|
+    |13|14|15|16|
+    |-----------|
+    """
+    # Cek value dari tombol dengan horizontal, vertical, diagonal kemungkinan untuk player 1
+    # Horizontal
+    if (b1.get() == '1' and b2.get() == '1' and b3.get() == '1' and b4.get() == '1'):
+        coret(1, 0, 0)
+    elif (b5.get() == '1' and b6.get() == '1' and b7.get() == '1' and b8.get() == '1'):
+        coret(2, 0, 0)
+    elif (b9.get() == '1' and b10.get() == '1' and b11.get() == '1' and b12.get() == '1'):
+        coret(3, 0, 0)
+    elif (b13.get() == '1' and b14.get() == '1' and b15.get() == '1' and b16.get() == '1'):
+        coret(4, 0, 0)
+    # Vertical
+    elif (b1.get() == '1' and b5.get() == '1' and b9.get() == '1' and b13.get() == '1'):
+        coret(0, 1, 0)
+    elif (b2.get() == '1' and b6.get() == '1' and b10.get() == '1' and b14.get() == '1'):
+        coret(0, 2, 0)
+    elif (b3.get() == '1' and b7.get() == '1' and b11.get() == '1' and b15.get() == '1'):
+        coret(0, 3, 0)
+    elif (b4.get() == '1' and b8.get() == '1' and b12.get() == '1' and b16.get() == '1'):
+        coret(0, 4, 0)
+    # Diagonal
+    elif (b1.get() == '1' and b6.get() == '1' and b11.get() == '1' and b16.get() == '1'):
+        coret(0, 0, 1)
+    elif (b4.get() == '1' and b7.get() == '1' and b10.get() == '1' and b13.get() == '1'):
+        coret(0, 0, 2)
+
+
+    # Cek value dari tombol dengan horizontal, vertical, diagonal kemungkinan untuk player 0
+    # Horizontal
+    elif (b1.get() == '0' and b2.get() == '0' and b3.get() == '0' and b4.get() == '0'):
+        coret(1, 0, 0)
+    elif (b5.get() == '0' and b6.get() == '0' and b7.get() == '0' and b8.get() == '0'):
+        coret(2, 0, 0)
+    elif (b9.get() == '0' and b10.get() == '0' and b11.get() == '0' and b12.get() == '0'):
+        coret(3, 0, 0)
+    elif (b13.get() == '0' and b14.get() == '0' and b15.get() == '0' and b16.get() == '0'):
+        coret(4, 0, 0)
+    # Vertical
+    elif (b1.get() == '0' and b5.get() == '0' and b9.get() == '0' and b13.get() == '0'):
+        coret(0, 1, 0)
+    elif (b2.get() == '0' and b6.get() == '0' and b10.get() == '0' and b14.get() == '0'):
+        coret(0, 2, 0)
+    elif (b3.get() == '0' and b7.get() == '0' and b11.get() == '0' and b15.get() == '0'):
+        coret(0, 3, 0)
+    elif (b4.get() == '0' and b8.get() == '0' and b12.get() == '0' and b16.get() == '0'):
+        coret(0, 4, 0)
+    # Diagonal
+    elif (b1.get() == '0' and b6.get() == '0' and b11.get() == '0' and b16.get() == '0'):
+        coret(0, 0, 1)
+    elif (b4.get() == '0' and b7.get() == '0' and b10.get() == '0' and b13.get() == '0'):
+        coret(0, 0, 2)
 
 def pesan_seri():
     msgbox.showinfo(JUDUL, "Permainan Seri")
