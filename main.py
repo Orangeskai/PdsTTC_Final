@@ -1,3 +1,5 @@
+from distutils import core
+from this import d
 from tkinter import Tk, StringVar, Button
 from config import *
 import os
@@ -186,6 +188,74 @@ def start():
             cekmenang()
 
 def cekmenang():
+    global COUNT, KLIK
+    print(COUNT) #untuk mengetahui jumlah klik
+    """
+    |-----------|
+    |1 |2 |3 |4 |
+    |5 |6 |7 |8 |
+    |9 |10|11|12|
+    |13|14|15|16|
+    |-----------|
+    """
+
+    if(
+        # Player 1 menang
+        # Horizontal
+        b1.get() == '1' and b2.get() == '1' and b3.get() == '1' and b4.get() == '1' or
+        b5.get() == '1' and b6.get() == '1' and b7.get() == '1' and b8.get() == '1' or
+        b9.get() == '1' and b10.get() == '1' and b11.get() == '1' and b12.get() == '1' or
+        b13.get() == '1' and b14.get() == '1' and b15.get() == '1' and b16.get() == '1' or
+        # Vertical
+        b1.get() == '1' and b5.get() == '1' and b9.get() == '1' and b13.get() == '1' or
+        b2.get() == '1' and b6.get() == '1' and b10.get() == '1' and b14.get() == '1' or
+        b3.get() == '1' and b7.get() == '1' and b11.get() == '1' and b15.get() == '1' or
+        b4.get() == '1' and b8.get() == '1' and b12.get() == '1' and b16.get() == '1' or
+        # Diagonal
+        b1.get() == '1' and b6.get() == '1' and b11.get() == '1' and b16.get() == '1' or
+        b4.get() == '1' and b7.get() == '1' and b10.get() == '1' and b13.get() == '1'
+        ):
+        coret()
+        pesan_menang(1)
+        COUNT = 0
+        KLIK = True
+        kosongkan()
+
+    elif(
+        # Player 2 Menang
+        # Horizontal
+        b1.get() == '0' and b2.get() == '0' and b3.get() == '0' and b4.get() == '0' or
+        b5.get() == '0' and b6.get() == '0' and b7.get() == '0' and b8.get() == '0' or
+        b9.get() == '0' and b10.get() == '0' and b11.get() == '0' and b12.get() == '0' or
+        b13.get() == '0' and b14.get() == '0' and b15.get() == '0' and b16.get() == '0' or
+        # Vertical
+        b1.get() == '0' and b5.get() == '0' and b9.get() == '0' and b13.get() == '0' or
+        b2.get() == '0' and b6.get() == '0' and b10.get() == '0' and b14.get() == '0' or
+        b3.get() == '0' and b7.get() == '0' and b11.get() == '0' and b15.get() == '0' or
+        b4.get() == '0' and b8.get() == '0' and b12.get() == '0' and b16.get() == '0' or
+        # Diagonal
+        b1.get() == '0' and b6.get() == '0' and b11.get() == '0' and b16.get() == '0' or
+        b4.get() == '0' and b7.get() == '0' and b10.get() == '0' and b13.get() == '0'
+    ):
+        coret()
+        pesan_menang(0)
+        COUNT = 0
+        KLIK = True
+        kosongkan()
+    
+    elif COUNT == 16:
+        pesan_seri()
+        COUNT = 0
+        KLIK = True
+        kosongkan()
+
+def coret():
+    pass
+def pesan_seri():
+    print("Seri")
+def pesan_menang():
+    print("Menang")
+def kosongkan():
     pass
 
 start()
