@@ -1,5 +1,4 @@
-from distutils import core
-from this import d
+import tkinter.messagebox as msgbox
 from tkinter import Tk, StringVar, Button
 from config import *
 import os
@@ -249,14 +248,43 @@ def cekmenang():
         KLIK = True
         kosongkan()
 
+def quote():
+    pass
 def coret():
     pass
+
 def pesan_seri():
-    print("Seri")
-def pesan_menang():
-    print("Menang")
+    msgbox.showinfo(JUDUL, "Permainan Seri")
+    quote()
+    start()
+
+def pesan_menang(player):
+    if player == 1:
+        msgbox.showinfo(JUDUL, "Player 1 Menang !!!")
+        quote()
+        start()
+    elif player == 0:
+        msgbox.showinfo(JUDUL, "Player 0 Menang !!!")
+        quote()
+        start()
+
 def kosongkan():
-    pass
+    b1.set(value="")
+    b2.set(value="")
+    b3.set(value="")
+    b4.set(value="")
+    b5.set(value="")
+    b6.set(value="")
+    b7.set(value="")
+    b8.set(value="")
+    b9.set(value="")
+    b10.set(value="")
+    b11.set(value="")
+    b12.set(value="")
+    b13.set(value="")
+    b14.set(value="")
+    b15.set(value="")
+    b16.set(value="")
 
 start()
 root.mainloop()
