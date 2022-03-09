@@ -1,7 +1,8 @@
-import tkinter.messagebox as msgbox
 from tkinter import Tk, StringVar, Button
 from config import *
-import os
+import tkinter.messagebox as msgbox
+import json, codecs, os
+from random import randint
 
 root = Tk()
 root.title(JUDUL)
@@ -249,7 +250,20 @@ def cekmenang():
         kosongkan()
 
 def quote():
-    pass
+    f = codecs.open('data/quote.json', 'r', 'utf-8-sig')
+    data = json.load(f)
+    jumlah_data = len(data) - 1
+    random_number = randint(0, jumlah_data)
+    quote = data[random_number]
+
+    #extrak data dari json
+    quote_text = quote.get('text')
+    quote_author = quote.get('from')
+
+    #tampilkan quote
+    msgbox.showinfo("QUOTE HARI INI", quote_text + "\n\n" + quote_author)
+    f.close()
+
 def coret():
     pass
 
