@@ -10,7 +10,7 @@ PADDINGY = 2
 
 #Tinggi lebar tombol
 TINGGI = 3
-LEBAR = 5
+LEBAR = 7
 
 #Jenis font dan ukuran font
 FONT = ("Dyuthi", 20, 'bold') #Sudah ditest di Linux
