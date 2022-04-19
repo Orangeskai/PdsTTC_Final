@@ -26,6 +26,9 @@ b14 = StringVar(value='')
 b15 = StringVar(value='')
 b16 = StringVar(value='')
 
+if os.name == "posix":
+    kfg.TINGGI = kfg.TINGGI + 1
+
 #Untuk menentukan siapa yang main dulu (player 1 atau player 2)
 KLIK = True
 #Untuk menyimpan progress permainan
